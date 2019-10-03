@@ -2,11 +2,16 @@ package xyz.edlison.community.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import xyz.edlison.community.model.User;
 
 @Mapper
 public interface UserMapper {
 
     @Insert("insert into user (name, account_id, token, gmt_creat, gmt_modified) values (#{name},#{accountId},#{token},#{gmtCreat},#{gmtModified})")
-    void insert(User user);
+    void insert(User user);                                                         //如果是对象自动匹配
+
+    @Select("select * from user where token = #{token}")
+    User findByToken(@Param("token") String token);                                 //如果是一个值需要Param
 }

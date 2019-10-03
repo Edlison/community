@@ -11,7 +11,9 @@ import xyz.edlison.community.mapper.UserMapper;
 import xyz.edlison.community.model.User;
 import xyz.edlison.community.provider.GitHubProvider;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
@@ -21,7 +23,7 @@ public class AuthorizeController {
     private GitHubProvider gitHubProvider;
 
     @Autowired
-    private UserMapper userMapper;                                                  //required a bean
+    private UserMapper userMapper;                                                  //need starter dependency
 
     @Value("${github.client.id}")
     private String clientID;
@@ -35,7 +37,8 @@ public class AuthorizeController {
     @GetMapping("/callback")                                    //GetMapping后参数！！！
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                           HttpServletRequest request) {
+                           HttpServletRequest request,
+                           HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientID);
@@ -51,7 +54,8 @@ public class AuthorizeController {
         if (gitHubUser.getLogin() != null) {
             User user = new User();
 
-            user.setToken(UUID.randomUUID().toString());
+            String token = UUID.randomUUID().toString();
+            user.setToken(token);
             user.setName(gitHubUser.getLogin());
             user.setAccountId(String.valueOf(gitHubUser.getId()));
             user.setGmtCreat(System.currentTimeMillis());
@@ -59,7 +63,7 @@ public class AuthorizeController {
 
             userMapper.insert(user);
 
-            request.getSession().setAttribute("user", gitHubUser);
+            response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
             return "redirect:/";
