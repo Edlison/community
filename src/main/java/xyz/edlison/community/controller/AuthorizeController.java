@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import xyz.edlison.community.DTO.AccessTokenDTO;
 import xyz.edlison.community.DTO.GitHubUser;
+import xyz.edlison.community.mapper.UserMapper;
+import xyz.edlison.community.model.User;
 import xyz.edlison.community.provider.GitHubProvider;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 @Controller
 public class AuthorizeController {
 
     @Autowired
     private GitHubProvider gitHubProvider;
+
+    @Autowired
+    private UserMapper userMapper;                                                  //required a bean
 
     @Value("${github.client.id}")
     private String clientID;
@@ -26,10 +32,10 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String redirectUri;
 
-    @GetMapping("/callback")
-    public String callback(@RequestParam(name = "code") String code,                                                    //Required String parameter 'code' is not present
+    @GetMapping("/callback")                                    //GetMapping后参数！！！
+    public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                           HttpServletRequest request) {                                                                //Required String parameter 'state' is not present
+                           HttpServletRequest request) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientID);
@@ -39,11 +45,21 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
 
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
-        GitHubUser user = gitHubProvider.getUser(accessToken);
-        System.out.println(user.getLogin());
+        GitHubUser gitHubUser = gitHubProvider.getUser(accessToken);
+        System.out.println(gitHubUser.getLogin());
 
-        if (user.getLogin() != null) {
-            request.getSession().setAttribute("user", user);
+        if (gitHubUser.getLogin() != null) {
+            User user = new User();
+
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(gitHubUser.getLogin());
+            user.setAccountId(String.valueOf(gitHubUser.getId()));
+            user.setGmtCreat(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreat());
+
+            userMapper.insert(user);
+
+            request.getSession().setAttribute("user", gitHubUser);
             return "redirect:/";
         } else {
             return "redirect:/";

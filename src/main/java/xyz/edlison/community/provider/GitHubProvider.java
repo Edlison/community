@@ -22,7 +22,7 @@ public class GitHubProvider {
             try (Response response = client.newCall(request).execute()) {
                 String string = response.body().string();
                 String token = string.split("&")[0].split("=")[1];
-                return token;                                                                                           //token拿不到
+                return token;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -38,7 +38,7 @@ public class GitHubProvider {
             Response response = client.newCall(request).execute();
             String string = response.body().string();
             GitHubUser gitHubUser = JSON.parseObject(string, GitHubUser.class);
-            return gitHubUser;                                                                                          //GitHubUser拿不到
+            return gitHubUser;
         } catch (IOException e) {
             e.printStackTrace();
         }
