@@ -7,13 +7,13 @@
     <!--    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css" />-->
     <!--    <script src="../static/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap-theme.css">
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/community.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -55,5 +55,42 @@
         </div>
     </div>
 </nav>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起</h2>
+            <hr>
+            <form action="/publish" method="post">                                                          <!--提交请求 路由到publish-->
+                <div class="form-group">
+                    <label for="title">失物名称</label>
+                    <input type="text" class="form-control" id="title" name="title" th:value="${title}" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <label for="description">物品描述</label>
+                    <textarea type="text" class="form-control" name="description" id="description" cols="30" rows="10" th:value="${description}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag">添加标签</label>
+                    <input type="text" class="form-control" id="tag" name="tag" th:value="${tag}" placeholder="标签名以','隔开">
+                </div>
+
+                <span class="alert alert-danger" th:text="${error}" th:if="${error != null}"></span>
+                <button type="submit" class="btn btn-success btn-publish">发布</button>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores autem culpa debitis eveniet
+            expedita explicabo, fuga harum incidunt ipsam nam nostrum odio perspiciatis recusandae repellendus sapiente
+            sequi tempora ut.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur consequuntur cum eligendi, fuga
+            inventore nisi ullam voluptatum! Aliquam aperiam consequatur doloribus dolorum ducimus facere illum quas
+            recusandae vel voluptate.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, aut commodi debitis dignissimos est
+            illum in iusto magni necessitatibus officia perspiciatis provident quas qui soluta, tempora? Consequuntur
+            laudantium mollitia possimus!
+        </div>
+    </div>
+</div>
 </body>
 </html>
