@@ -10,8 +10,10 @@
 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC1/reference/htmlsingle/#boot-features-embedded-database-support)
 
 ## Tools
-
-
+[Git](https://git-scm.com)  
+[Visual-Paradigm](https://www.visual-paradigm.com)  
+[Flyway](https://flywaydb.org)  
+[Lombok](https://projectlombok.org)
 
 ## 脚本
 ```sql
@@ -29,4 +31,3 @@ CREATE TABLE USER
 CREATE USER IF NOT EXISTS edlison PASSWORD '123';
 ALTER USER edlison admin true ;
 ```
-
