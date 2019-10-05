@@ -55,5 +55,42 @@
         </div>
     </div>
 </nav>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
+            <hr>
+
+            <div class="media" data-th-each="question : ${questions}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded" style="width: 38px; height: 38px" th:src="${question.user.avatarUrl}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <span th:text="${question.description}"></span> <br>
+                    <div  style="font-size: 12px;font-weight: normal;color: #999;">
+                        <span th:text="${question.commentCount}"></span>个回复 • <span th:text="${question.viewCount}"></span>次浏览 • <span th:text="${#dates.format(question.getGmtCreat(),'yyyy-MM-dd HH:mm')}"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>最新热点</h3>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores autem culpa debitis eveniet
+            expedita explicabo, fuga harum incidunt ipsam nam nostrum odio perspiciatis recusandae repellendus sapiente
+            sequi tempora ut.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur consequuntur cum eligendi, fuga
+            inventore nisi ullam voluptatum! Aliquam aperiam consequatur doloribus dolorum ducimus facere illum quas
+            recusandae vel voluptate.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, aut commodi debitis dignissimos est
+            illum in iusto magni necessitatibus officia perspiciatis provident quas qui soluta, tempora? Consequuntur
+            laudantium mollitia possimus!
+        </div>
+    </div>
+</div>
 </body>
 </html>

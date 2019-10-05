@@ -37,7 +37,6 @@ public class AuthorizeController {
     @GetMapping("/callback")                                    //GetMapping后参数！！！
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                           HttpServletRequest request,
                            HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
