@@ -28,7 +28,7 @@ public class PublishController {
         return "publish";
     }
 
-    @PostMapping("/publish")
+    @PostMapping("/publish")//当method="post"
     public String doPublish(
             @RequestParam("title") String title,
             @RequestParam("description") String description,
@@ -36,7 +36,7 @@ public class PublishController {
             HttpServletRequest request,
             Model model) {                      //服务端API传递到页面
 
-        model.addAttribute("title", title);
+        model.addAttribute("title", title); //Model前端通过标签获取
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
 

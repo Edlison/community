@@ -1,7 +1,6 @@
 package xyz.edlison.community.DTO;
 
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 

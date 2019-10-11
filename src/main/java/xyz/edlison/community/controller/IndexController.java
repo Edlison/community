@@ -6,14 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import xyz.edlison.community.DTO.PaginationDTO;
-import xyz.edlison.community.DTO.QuestionDTO;
 import xyz.edlison.community.mapper.UserMapper;
 import xyz.edlison.community.model.User;
 import xyz.edlison.community.service.QuestionService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class IndexController {
