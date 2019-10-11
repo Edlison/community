@@ -8,6 +8,7 @@
 [Bootstrap使用手册](https://v3.bootcss.com)  
 [GitHub登陆API](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)  
 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC1/reference/htmlsingle/#boot-features-embedded-database-support)  
+[Spring MVC](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#mvc)  
 [Thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)
 ## Tools
 [Git](https://git-scm.com)  
