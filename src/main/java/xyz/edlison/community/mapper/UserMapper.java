@@ -1,9 +1,6 @@
 package xyz.edlison.community.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import xyz.edlison.community.model.User;
 
 @Mapper
@@ -17,4 +14,10 @@ public interface UserMapper {
 
     @Select("select * from user where id = #{id}")
     User findById(@Param("id") Integer id);
+
+    @Select("select * from user where account_id = #{accountId}")
+    User findByAccountId(@Param("accountId")String accountId);
+
+    @Update("Update user set name = #{name}, avatar_url = #{avatarUrl}, gmt_modified = #{gmtModified}, token = #{token} where account_id = #{accountId}")//id or accountId
+    void update(User user);
 }

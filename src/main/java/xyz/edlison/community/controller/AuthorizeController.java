@@ -10,6 +10,7 @@ import xyz.edlison.community.DTO.GitHubUser;
 import xyz.edlison.community.mapper.UserMapper;
 import xyz.edlison.community.model.User;
 import xyz.edlison.community.provider.GitHubProvider;
+import xyz.edlison.community.service.UserService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,9 @@ public class AuthorizeController {
 
     @Autowired
     private UserMapper userMapper;                                                  //need starter dependency
+
+    @Autowired
+    private UserService userService;
 
     @Value("${github.client.id}")
     private String clientID;
@@ -55,18 +59,27 @@ public class AuthorizeController {
 
             String token = UUID.randomUUID().toString();
             user.setToken(token);
-            user.setName(gitHubUser.getLogin());
+            user.setName(gitHubUser.getLogin());//user.name是GitHub的登录名
             user.setAccountId(String.valueOf(gitHubUser.getId()));
             user.setAvatarUrl(gitHubUser.getAvatar_url());
-            user.setGmtCreat(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreat());
 
-            userMapper.insert(user);
+            userService.creatOrUpdate(user);
 
             response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
             return "redirect:/";
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response) {
+        request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
+        return "redirect:/";
     }
 }

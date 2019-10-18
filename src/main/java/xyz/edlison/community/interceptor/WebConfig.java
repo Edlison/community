@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableWebMvc//自动拦截静态文件！！！
+//@EnableWebMvc//自动拦截静态文件！！！
 public class WebConfig implements WebMvcConfigurer {
 
     @Autowired

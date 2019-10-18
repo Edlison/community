@@ -34,7 +34,7 @@ public class SessionInterceptor implements HandlerInterceptor {//非Spring Bean�
                 }
             }
         }
-        return false;
+        return true;//false无token时被拦截
     }
 
     @Override
