@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.edlison.community.DTO.PaginationDTO;
 import xyz.edlison.community.DTO.QuestionDTO;
+import xyz.edlison.community.exception.CustomizeErrorCode;
+import xyz.edlison.community.exception.CustomizeException;
 import xyz.edlison.community.mapper.QuestionMapper;
 import xyz.edlison.community.mapper.UserMapper;
 import xyz.edlison.community.model.Question;
@@ -95,6 +97,9 @@ public class QuestionService {//组装User层和Question层
 
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.selectByPrimaryKey(id);
+        if (question == null) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);//异常通用处理！！！
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
@@ -119,7 +124,10 @@ public class QuestionService {//组装User层和Question层
             updateQuestion.setTag(question.getTag());
             QuestionExample example = new QuestionExample();
             example.createCriteria().andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, example);
+            int updated = questionMapper.updateByExampleSelective(updateQuestion, example);
+            if (updated == 0) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);//异常通用处理！！！
+            }
         }
     }
 }
