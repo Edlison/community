@@ -32,7 +32,8 @@ CREATE TABLE USER
 CREATE USER IF NOT EXISTS edlison PASSWORD '123';
 ALTER USER edlison admin true ;
 ```
-```cmd
+```
 //H2数据库脚本变更
 mvn flywat:migarate
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```

@@ -4,21 +4,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import xyz.edlison.community.mapper.QuestionMapper;
+import xyz.edlison.community.DTO.QuestionDTO;
 import xyz.edlison.community.model.Question;
 import xyz.edlison.community.model.User;
+import xyz.edlison.community.service.QuestionService;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class PublishController {
 
     @Autowired
-    private QuestionMapper questionMapper;
+    private QuestionService questionService;
 
     @GetMapping("/publish")
     public String publish() {
+        return "publish";
+    }
+
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") Integer id,
+                       Model model) {
+        QuestionDTO question = questionService.getById(id);
+        model.addAttribute("title", question.getTitle());
+        model.addAttribute("description", question.getDescription());
+        model.addAttribute("tag", question.getTag());
+        model.addAttribute("id", id);
         return "publish";
     }
 
@@ -27,6 +40,7 @@ public class PublishController {
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("tag") String tag,
+            @RequestParam("id") Integer id,
             HttpServletRequest request,
             Model model) {                      //服务端API传递到页面
 
@@ -59,10 +73,9 @@ public class PublishController {
         question.setDescription(description);
         question.setTag(tag);
         question.setCreator(user.getId());
-        question.setGmtCreat(System.currentTimeMillis());
-        question.setGmtModified(question.getGmtCreat());
+        question.setId(id);
 
-        questionMapper.creat(question);
+        questionService.createOrUpdate(question);
 
         return "redirect:/";
     }
