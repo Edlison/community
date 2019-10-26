@@ -8,6 +8,7 @@ import xyz.edlison.community.DTO.PaginationDTO;
 import xyz.edlison.community.DTO.QuestionDTO;
 import xyz.edlison.community.exception.CustomizeErrorCode;
 import xyz.edlison.community.exception.CustomizeException;
+import xyz.edlison.community.mapper.QuestionExtMapper;
 import xyz.edlison.community.mapper.QuestionMapper;
 import xyz.edlison.community.mapper.UserMapper;
 import xyz.edlison.community.model.Question;
@@ -25,6 +26,9 @@ public class QuestionService {//组装User层和Question层
 
     @Autowired
     private QuestionMapper questionMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
 
@@ -111,9 +115,12 @@ public class QuestionService {//组装User层和Question层
     public void createOrUpdate(Question question) {
         if (question.getId() == null) {
             // 创建
-            questionMapper.insert(question);
             question.setGmtCreat(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreat());
+            question.setCommentCount(0);
+            question.setLikeCount(0);
+            question.setViewCount(1);
+            questionMapper.insert(question);
         } else {
             // 更新
 //            question.setGmtModified(System.currentTimeMillis());
@@ -129,5 +136,12 @@ public class QuestionService {//组装User层和Question层
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);//异常通用处理！！！
             }
         }
+    }
+
+    public void incView(Integer id) {
+        Question record = new Question();//Question对象
+        record.setId(id);//传给QuestionExtMapper两个参数 一个ID
+        record.setViewCount(1);//一个viewCount步长
+        questionExtMapper.incView(record);//传一个Question对象
     }
 }
