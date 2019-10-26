@@ -34,6 +34,6 @@ ALTER USER edlison admin true ;
 ```
 ```
 //H2数据库脚本变更
-mvn flywat:migarate
+mvn flyway:migrate
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
