@@ -62,7 +62,7 @@ public class QuestionService {//组装User层和Question层
         return paginationDTO;
     }
 
-    public PaginationDTO list(Integer userId, Integer page, Integer size) {
+    public PaginationDTO list(Long userId, Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
 //        Integer totalCount = questionMapper.countByUserId(userId);
 
@@ -99,7 +99,7 @@ public class QuestionService {//组装User层和Question层
         return paginationDTO;
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question = questionMapper.selectByPrimaryKey(id);
         if (question == null) {
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);//异常通用处理！！！
@@ -138,7 +138,7 @@ public class QuestionService {//组装User层和Question层
         }
     }
 
-    public void incView(Integer id) {
+    public void incView(Long id) {
         Question record = new Question();//Question对象
         record.setId(id);//传给QuestionExtMapper两个参数 一个ID
         record.setViewCount(1);//一个viewCount步长
