@@ -1,0 +1,24 @@
+/*reset.css 重置浏览器默认样式*/
+body{
+  color: inherit;
+}
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd {
+    /* 群组选择器 */
+    margin: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 1em;
+  }
+  ul, ol {
+    padding: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+

@@ -1,0 +1,173 @@
+body{
+    color:#333 ;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-top{
+    height: 38px;
+    background-color: #323232;
+}
+
+.page-top .top-lt{
+    color: #a2a2a2;
+    line-height: 38px;
+    float: left;
+}
+
+.page-top .top-lt span{
+    color: #3f3f3f;
+    padding: 0 3px;
+}
+.page-top .top-lt a:hover{
+    color: #fff;
+}
+
+.page-top .top-rt{
+    float: right;
+    width: 300px;
+}
+
+.page-top .top-rt .login{
+    color: #a2a2a2;
+    line-height: 38px;
+    float: right;
+    margin-right: 20px;
+}
+.page-top .top-rt .login span{
+    color: #3f3f3f;
+    padding: 0 3px;
+}
+
+.page-top .top-rt .car-box{
+    width: 118px;
+    background-color: #424242;
+    float: right;
+    height: 38px;
+}
+
+/* 导航样式 */
+.page-nav{
+    height: 96px;
+}
+
+.page-nav .logo{
+    margin-top: 21px;
+    display: block;
+    float: left;
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    background: url(../images/logo.png) center center no-repeat;
+    margin-right: 45px;
+}
+
+.page-nav .nav .nav-item{
+    margin-left: 20px;
+    float: left;
+    padding-top: 34px;
+}
+.page-nav .nav .nav-item .tit:hover{
+    color: #ff6700;
+}
+.page-nav .nav .nav-item .tit{
+    font-size: 16px;
+    color: #666;
+}
+
+.page-nav .search{
+    float: right;
+    position: relative;
+    margin-top: 24px;
+}
+.page-nav .search .q{
+    width:230px;
+    height: 48px;
+    border: 1px solid #b0b0b0;
+    border-right: none;
+    padding: 0;
+    outline: none;
+    line-height: 48px;
+    padding-left: 4px;
+    float: left;
+}
+
+.page-nav .search .btn{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #b0b0b0;
+    float: left;
+    cursor: pointer;
+    background: #fff url(../images/search.png) center center no-repeat;
+    background-size: 20px 20px;
+}
+
+.page-nav .search .btn:hover{
+    background: #ff6700 url(../images/search-on.png ) center center no-repeat;
+    background-size: 20px 20px;
+    border-color: #ff6700;
+}
+.page-nav .search .tags{
+    position: absolute;
+    top: 30%;
+    right:60px;
+    width: 160px ;
+    text-align: right;
+}
+.page-nav .search .tags span{
+    height: 18px;
+    padding: 0 5px;
+    background-color: #eee;
+    font-size: 12px;
+    cursor: pointer;
+    
+    color: #757575;
+}
+.page-nav .search .tags span:hover{
+    background-color: #ff6700;
+    color: #fff;
+}
+ 
+.page-nav .search ul{
+    position: absolute;
+    top:50px;
+
+}
+
+.search:hover .q,.search:hover .btn{
+    border-color: #ff6700 ;
+}
+
+.search .hot{
+    width: 234px;
+    border: 1px solid #ff6700;
+    border-bottom: none;
+    border-top: none;
+}
+.search .hot li{
+    display: none;
+    height: 30px;
+}
+.search .hot li a{
+    display: block;
+    padding: 0 15px;
+
+}
+.search .hot li:hover{
+    background-color: #fafafa;
+}
+.search .hot li i{
+    font-style: normal;
+    float: right;
+    color: #b0b0b0;
+}

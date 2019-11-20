@@ -1,0 +1,108 @@
+.idx-container{
+    background-color: #f5f5f5;
+    margin-top: 40px;
+    overflow: hidden;
+}
+.idx-title{
+    overflow: hidden;
+    line-height: 60px;
+    margin-top: 20px;
+    /* 一个容器的第一个子元素的margin-top会转移给父元素的margin-top */
+}
+.idx-title .title{
+    font-size: 22px;
+    color: #666666;
+}
+
+.brick-list{
+    height: 614px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 992px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.brick-item {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 234px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    background: #fff;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+}
+
+.brick-item:hover {
+    z-index: 2;
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0)
+}
+
+.brick-item-l {
+    height: 614px
+}
+
+.brick-item-m {
+    height: 246px;
+    padding: 34px 0 20px
+}
+
+.brick-item-m .figure-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 18px
+}
+
+.brick-item-m .figure-img a {
+    display: block
+}
+
+.brick-item-m .figure-img img {
+    width: 150px;
+    height: 150px
+}
+
+.brick-item-m .title {
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333
+}
+
+.brick-item-m .desc,
+.brick-item-m .title {
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.brick-item-m .desc {
+    margin: 0 10px 10px;
+    height: 18px;
+    font-size: 12px;
+    color: #b0b0b0
+}
+
+
+.brick-item-m-2 {
+    height: 260px;
+    padding: 20px 0
+}
+
+.brick-item-m-2 .figure-img,
+.brick-item-m-2 .figure-img img {
+    width: 160px;
+    height: 160px
+}
+
+.brick-item-m-2 .title {
+    margin: 0 10px 2px
+}
+
+
