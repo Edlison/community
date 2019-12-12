@@ -1,0 +1,41 @@
+.cards-container {
+	display: flex;
+	justify-content: space-around;
+	perspective: 1000px;
+	width: 1300px;
+	overflow: hidden;
+}
+
+.cards-container:hover .card {
+	transform: rotateY(30deg);
+}
+
+.card {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	flex-shrink: 0;
+	border-radius: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	margin: 20px;
+	height: 300px;
+	transition: transform 0.2s ease-in-out;
+	width: 220px;
+	/* min-width: 100px; */
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.card h3,p{
+	color: black;
+}
+
+.card:hover {
+	transform: rotateY(0deg) !important;
+}
+
+.card:hover ~ .card {
+	transform: rotateY(-30deg);
+}
+
+

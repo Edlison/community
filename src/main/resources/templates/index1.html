@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/toolbar.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/scroll.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js">
+    </script>
+    <title>共益青年</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <h1>共益青年</h1>
+        </div>
+        <div id="search-box" class="input-group">
+            <input type="text" class="form-control" placeholder="相关信息" aria-describedby="basic-addon2"
+                id="input-search">
+            <button class="button button-box  button-longshadow-left button-search">
+                搜索
+            </button>
+        </div>
+        <div id="sign-in">
+            <button class="button button-longshadow button-box button-signin">登录</button>
+        </div>
+    </header>
+    <main>
+        <div id="slideshow">
+            <div class="scrollButton owl-carousel" id="leftbutton">
+                <svg t="1572880578171" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="856">
+                    <path
+                        d="M802.228902 89.261802A51.197491 51.197491 0 1 0 733.726659 13.18233l-511.974913 460.777422a51.197491 51.197491 0 0 0 0 76.079472l511.974913 460.777422a51.197491 51.197491 0 1 0 68.502243-76.079472L332.543117 511.999488l469.685785-422.737686z"
+                        p-id="857"></path>
+                </svg>
+            </div>
+            <div class="cards-container" id="cards-container">
+                <div class="card">
+                    <a href="">
+                        <img src="../images/search.png" alt="">
+                        <h3>标题</h3>
+                        <p>描述</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="../images/search.png" alt="">
+                        <h3>标题</h3>
+                        <p>描述</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="../images/search.png" alt="">
+                        <h3>标题</h3>
+                        <p>描述</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="../images/search.png" alt="">
+                        <h3>标题</h3>
+                        <p>描述</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="../images/search.png" alt="">
+                        <h3>标题</h3>
+                        <p>描述</p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="scrollButton" id="rightbutton">
+                <svg t="1572880688953" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="978">
+                    <path
+                        d="M221.740994 934.737686a51.197491 51.197491 0 1 0 68.502243 76.079472l511.974913-460.777422a51.197491 51.197491 0 0 0 0-76.079472l-511.974913-460.777422A51.197491 51.197491 0 1 0 221.740994 89.262314L691.426779 512 221.740994 934.737686z"
+                        p-id="979"></path>
+                </svg>
+            </div>
+        </div>
+        <div id="main-showcase">
+
+            <div id="special-column"></div>
+            <div id="showcase"></div>
+        </div>
+
+    </main>
+
+    <div class="toolbar">
+        <a href="javascript:;" class="toolbar-item toolbar-item-weixin">
+            <span class="toolbar-item-layer"></span>
+        </a>
+        <a href="javascript:;" class="toolbar-item toolbar-item-feedback"></a>
+        <a href="javascript:;" class="toolbar-item toolbar-item-app">
+            <span class="toolbar-item-layer"></span>
+        </a>
+        <a href="javascript:;" class="toolbar-item toolbar-item-top"></a>
+    </div>
+    <footer></footer>
+
+</body>
+<script>
+    window.onload = function () {
+        var timeCount = 0;
+        MyScroll(timeCount);
+    }
+</script>
+
+</html>

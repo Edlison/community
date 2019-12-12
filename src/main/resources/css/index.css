@@ -1,0 +1,79 @@
+html,body{
+    margin:0;
+    padding:0;
+    height:100%
+}
+
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    align-items: center;
+    z-index: 6;
+}
+.img-wrapper{
+    box-shadow: 5px 5px 5px #a19f9f;
+}
+.button-signin{
+    float: right;
+    right: 20px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.button-search{
+    width:50px;
+    height: 38px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    z-index: 1;
+}
+#slideshow{
+    width:calc(62vw);
+    /* height: calc(100vh); */
+    /* background-color: rgb(175, 231, 233); */
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#main-showcase{
+    width: calc(62vw);
+    height: calc(100vh);
+    background-color: rgb(175, 231, 253);
+    display: grid;
+    grid-auto-columns: 1fr 2fr;
+}
+#scrollshow{
+    width: calc(95vw);
+}
+.scrollButton{
+    width: calc(2.5vw);
+    z-index: 1;
+    position: relative;
+    /* display:table-cell;
+    vertical-align:middle;
+    height: 100%; */
+}
+svg{
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+}
+#scrollshow{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
