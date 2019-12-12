@@ -1,0 +1,25 @@
+.cards-container {
+    margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	perspective: 1000px;
+	width: 1300px;
+	overflow: hidden;
+}
+
+
+.card {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	border-radius: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	margin: 20px;
+	height: 300px;
+	transition: transform 0.2s ease-in-out;
+	width: 220px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
